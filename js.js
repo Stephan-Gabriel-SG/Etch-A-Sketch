@@ -1,11 +1,13 @@
 const container = document.getElementById('container')
 const headerTitle = document.createElement('h1')
+const link = document.createElement('a')
 const btnNewGrid = document.createElement('button')
 const btnResetGrid = document.createElement('button')
+const navContainer = document.createElement('nav')
 const btnContainer = document.createElement('div')
 const gridContainer = document.createElement('div')
 const gridContainerSize = 580
-const colorPallets=['#F7A8C4','#F37199','#E53888','#AC1754']
+const colorPallets=['#FF6969','#FFDE4D','#FFB22C','#FF4C4C']
 
 let gridNumber = 20
 let gridSize = gridContainerSize / gridNumber
@@ -14,6 +16,8 @@ let gridSize = gridContainerSize / gridNumber
 headerTitle.setAttribute('class','title')
 gridContainer.setAttribute('class','gridContainer')
 btnContainer.setAttribute('class','btnContainer')
+link.setAttribute('href','https://github.com/Stephan-Gabriel-SG')
+link.setAttribute('target','_blank')
 
 // GRID CONTAINER
 gridContainer.style.width=`${gridContainerSize}px`
@@ -24,17 +28,25 @@ headerTitle.innerText='Etch A Sketch'
 btnNewGrid.textContent='New Grid'
 btnResetGrid.textContent='Reset Grid'
 
+// LINK CONTENT
+link.innerHTML=`
+    <img id='githubLogo' src='github.svg' alt='icon'/>
+`
 // LISTENER
 btnNewGrid.addEventListener('click', ()=>newGridHandler())
 btnResetGrid.addEventListener('click', ()=>resetGridChildrenColor())
 
-// ADD TO CONTAINER 
+// ADD TO CONTAINER
+navContainer.append(
+    headerTitle,
+    link
+)
 btnContainer.append(
     btnNewGrid,
     btnResetGrid
 )
 container.append(
-    headerTitle,
+    navContainer,
     btnContainer,
     gridContainer
 )
