@@ -10,7 +10,24 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
-    border:1px solid black;
-    /* width: 580px;
-    height: 580px; */
+    border:1px solid #D9DFC6;
+}
+
+.btnContainer{
+    display: flex;
+    gap: 20px;
+}
+
+button{
+    background-color: #E53888;
+    color: white;
+    padding: 10px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 8px;
+    transition: .3s;
+}
+button:hover{
+    background-color: #AC1754;
+    cursor: pointer;
 }
