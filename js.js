@@ -1,6 +1,8 @@
 const container = document.getElementById('container')
 const headerTitle = document.createElement('h1')
-const btnCreateNewGrid = document.createElement('button')
+const btnNewGrid = document.createElement('button')
+const btnResetGrid = document.createElement('button')
+const btnContainer = document.createElement('div')
 const gridContainer = document.createElement('div')
 const gridContainerSize = 580
 const colorPallets=['#F7A8C4','#F37199','#E53888','#AC1754']
@@ -11,18 +13,29 @@ let gridSize = gridContainerSize / gridNumber
 // CLASS ATTRIBUTE
 headerTitle.setAttribute('class','title')
 gridContainer.setAttribute('class','gridContainer')
+btnContainer.setAttribute('class','btnContainer')
 
 // GRID CONTAINER
 gridContainer.style.width=`${gridContainerSize}px`
 gridContainer.style.height=`${gridContainerSize}px`
 
+// TEXT ELEMENT VALUE
 headerTitle.innerText='Etch A Sketch'
-btnCreateNewGrid.textContent='New Grid'
-btnCreateNewGrid.addEventListener('click', ()=>newGridHandler())
+btnNewGrid.textContent='New Grid'
+btnResetGrid.textContent='Reset Grid'
 
+// LISTENER
+btnNewGrid.addEventListener('click', ()=>newGridHandler())
+btnResetGrid.addEventListener('click', ()=>resetGridChildrenColor())
+
+// ADD TO CONTAINER 
+btnContainer.append(
+    btnNewGrid,
+    btnResetGrid
+)
 container.append(
     headerTitle,
-    btnCreateNewGrid,
+    btnContainer,
     gridContainer
 )
 
@@ -45,6 +58,7 @@ function newGridHandler () {
     }
 }
 
+// FUNCTIONS
 function updateNewGrid(gridNumber, gridSize){
     clearGridChildren()
     for (let index = 0; index < (gridNumber * gridNumber); index++) {
@@ -69,3 +83,7 @@ function clearGridChildren(){
     gridContainer.replaceChildren()
 }
 
+function resetGridChildrenColor(){
+    let gridChildren = gridContainer.childNodes
+    gridChildren.forEach(child=>child.style.background='transparent')
+}
