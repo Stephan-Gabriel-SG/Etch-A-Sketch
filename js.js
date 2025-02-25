@@ -37,16 +37,23 @@ function newGridHandler () {
             newGridHandler()
         }
         else{
-            alert(`change grid content ${newGrid}`)
+            updateNewGrid(newGrid, (gridContainerSize / newGrid))
         }
     }
 }
 
-for (let index = 0; index < (gridNumber * gridNumber); index++) {
-    const gridBox = document.createElement('div')
-    gridBox.style.width = `${gridSize}px`
-    gridBox.style.height = `${gridSize}px`
-    gridBox.style.boxShadow = '0 0 0px 0.5px black'
-    gridContainer.append(gridBox)
+function updateNewGrid(gridNumber, gridSize){
+    clearGridChildren()
+    for (let index = 0; index < (gridNumber * gridNumber); index++) {
+        const gridBox = document.createElement('div')
+        gridBox.style.width = `${gridSize}px`
+        gridBox.style.height = `${gridSize}px`
+        gridBox.style.boxShadow = '0 0 0px 0.5px black'
+        gridContainer.append(gridBox)
+    }
+}
+
+function clearGridChildren(){
+    gridContainer.replaceChildren()
 }
 
