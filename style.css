@@ -1,3 +1,17 @@
+@font-face {
+    font-family: myfont;
+    src: url(font/Atma-Regular.ttf);
+}
+
+*{
+    font-family: myfont, system-ui;
+    margin: 0;
+    --r:#FF4C4C;
+}
+
+body{
+    background: #fcffec;
+}
 
 #container{
     display: flex;
@@ -10,7 +24,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
-    border:1px solid #D9DFC6;
+    border: 1px solid #D9DFC6;
 }
 
 .btnContainer{
@@ -18,16 +32,33 @@
     gap: 20px;
 }
 
+nav{
+    display: flex;
+    padding-top: 15px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+    justify-content: space-around;
+    color: var(--r);
+    box-shadow: 0 1px 0px 0px var(--r);
+}
+
+img#githubLogo {
+    width: 42px;
+}
+
 button{
-    background-color: #E53888;
+    background-color: var(--r);
     color: white;
-    padding: 10px;
+    padding: 5px 12px;
     font-weight: bolder;
     border: none;
     border-radius: 8px;
+    font-size: medium;
+    letter-spacing: 1.4px;
     transition: .3s;
 }
 button:hover{
-    background-color: #AC1754;
+    transform: translateY(-3px);
     cursor: pointer;
 }
